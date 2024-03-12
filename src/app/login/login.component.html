@@ -1,0 +1,58 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email" />
+    <div
+      *ngIf="
+        loginForm.get('email')?.hasError('required') &&
+        loginForm.get('email')?.touched
+      "
+      class="error"
+    >
+      Email is required.
+    </div>
+    <div
+      *ngIf="
+        loginForm.get('email')?.hasError('email') &&
+        loginForm.get('email')?.touched
+      "
+      class="error"
+    >
+      Invalid email format.
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+    <div
+      *ngIf="
+        loginForm.get('password')?.hasError('required') &&
+        loginForm.get('password')?.touched
+      "
+      class="error"
+    >
+      Password is required.
+    </div>
+    <!-- <div
+      *ngIf="
+        loginForm.get('password')?.hasError('minlength') &&
+        loginForm.get('password')?.touched
+      "
+      class="error"
+    >
+      Password must be at least 3 characters.
+    </div>
+    <div
+      *ngIf="
+        loginForm.get('password')?.hasError('pattern') &&
+        loginForm.get('password')?.touched
+      "
+      class="error"
+    >
+      Password must meet the pattern requirements.
+    </div> -->
+  </div>
+
+  <button type="submit">Login</button>
+</form>

@@ -1,0 +1,15 @@
+<div class="header">
+      <h2 class="text-align">Welcome</h2>
+      <button (click)="logout()" class="logout-button">Logout</button>
+</div>
+
+<div class="container">
+  <div class="profile">
+    <img class="avatar" [src]="profileData.avatar" alt="Avatar">
+    <div class="details">
+      <div><strong>Name:</strong> {{ profileData.name }}</div>
+      <div><strong>Email:</strong> {{ profileData.email }}</div>
+      <div><strong>Role:</strong> {{ profileData.role }}</div>
+    </div>
+  </div>
+</div>
